@@ -1,0 +1,7 @@
+%tbody
+  %tr
+    %th= board.id
+    %th= board.title
+    %th= board.user.username
+    %th= board.created_at.to_s(:datetime)
+    %th= board.updated_at.to_s(:datetime)

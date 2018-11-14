@@ -8,6 +8,7 @@ h1 {
 
 #logo {
   float: left;
+  margin-right: 10px;
   font-size: 1.7em;
   color: white;
   letter-spacing: -1px;
@@ -27,15 +28,4 @@ footer {
       float: left;
       margin: 0% 35%;
     }
-}
-
-.flash {
-  color: $white;
-  text-align: center;
-  &__alert{
-    background-color: red;
-  }
-  &__notice {
-    background-color: $blue;
-  }
 }
