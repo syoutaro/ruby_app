@@ -23,6 +23,8 @@ class User < ApplicationRecord
   has_many :boards, inverse_of: :user, dependent: :destroy
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
+  validates :username, presence: true, length: { maximum: 30 }
+  
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
 end

@@ -3,7 +3,8 @@ class BoardsController < ApplicationController
   before_action :set_target_board, only: %i[show edit update destroy]
 
   def index
-    @boards = Board.order('created_at desc')
+    #@boards = Board.order('created_at desc')
+    @boards = Board.page(params[:page]).per(8).order('updated_at DESC')
   end
 
   def new

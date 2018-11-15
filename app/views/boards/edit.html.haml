@@ -2,4 +2,5 @@
   %h1 掲示板編集
   .ml-auto.boards__linkBox
     = link_to '一覧', boards_path, class: 'btn btn-outline-dark'
+= render 'layouts/flash'
 = render partial: "form", locals: { board: @board }
