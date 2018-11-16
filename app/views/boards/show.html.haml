@@ -3,12 +3,7 @@
     = link_to '一覧', boards_path, class: 'btn btn-outline-dark'
     = link_to '編集', edit_board_path, class: 'btn btn-outline-dark'
 = render 'layouts/flash'
-.card
-  .card-header
-    %h4= @board.title
-  .card-body
-    %p.card-text= simple_format(@board.body)
-    %p.text-right.font-weight-bold.mr-10= @board.user.username
+= render partial: "show_board", locals: { board: @board }
 .p-comment_list
   .p-comment_listTitle
     コメント

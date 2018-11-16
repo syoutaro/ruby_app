@@ -3,8 +3,8 @@ class BoardsController < ApplicationController
   before_action :set_target_board, only: %i[show edit update destroy]
 
   def index
-    #@boards = Board.order('created_at desc')
-    @boards = Board.page(params[:page]).per(6).order('updated_at DESC')
+    @boards = params[:tag_id].present? ? Tag.find(params[:tag_id]).boards : Board.all
+    @boards = @boards.page(params[:page]).per(6).order('updated_at DESC')
   end
 
   def new
@@ -49,7 +49,7 @@ class BoardsController < ApplicationController
   protected
 
   def board_params
-    params.require(:board).permit(:title, :body)
+    params.require(:board).permit(:title, :body, tag_ids:[])
   end
 
   def ensure_correct_user
