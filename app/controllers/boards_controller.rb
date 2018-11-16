@@ -4,7 +4,7 @@ class BoardsController < ApplicationController
 
   def index
     #@boards = Board.order('created_at desc')
-    @boards = Board.page(params[:page]).per(8).order('updated_at DESC')
+    @boards = Board.page(params[:page]).per(6).order('updated_at DESC')
   end
 
   def new
@@ -24,6 +24,7 @@ class BoardsController < ApplicationController
   end
 
   def show
+    @comment = Comment.new(board_id: @board.id)
   end
 
   def edit
