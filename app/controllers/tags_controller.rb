@@ -11,7 +11,7 @@ class TagsController < ApplicationController
       redirect_to :root
     else
       flash[:alert] = 'タグを作成できませんでした。'
-      render :new
+      redirect_back fallback_location: tag.boards
     end
   end
 

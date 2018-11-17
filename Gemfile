@@ -16,6 +16,7 @@ gem 'devise'
 gem 'hamlit-rails'
 gem 'erb2haml'
 gem 'kaminari'
+gem 'rails_autolink'
 
 group :development, :test do
   gem 'sqlite3', '1.3.13'

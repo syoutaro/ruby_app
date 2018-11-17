@@ -1,5 +1,5 @@
 .p-comment__item
-  %p= simple_format(comment.comment)
+  %p= auto_link(simple_format(comment.comment), html: {target: '_blank'})
   .p-comment__bottomLine
     %span= comment.user.username
     %span= comment.created_at.to_s(:datetime)
