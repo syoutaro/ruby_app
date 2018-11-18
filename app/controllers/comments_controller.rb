@@ -3,9 +3,8 @@ class CommentsController < ApplicationController
 
   def create
     comment = current_user.comments.new(comment_params)
-    #binding.pry
     if comment.save
-      flash[:notice] = 'コメントを投稿しました'
+      flash[:notice] = "コメントを投稿しました"
       redirect_to comment.board
     else
       flash[:alert] = "コメントを投稿できませんでした。"
@@ -23,7 +22,7 @@ class CommentsController < ApplicationController
   protected
 
   def comment_params
-    params.require(:comment).permit(:comment, :board_id, :user_id)
+    params.require(:comment).permit(:comment, :board_id)
   end
 
   def ensure_correct_user
@@ -33,5 +32,5 @@ class CommentsController < ApplicationController
       redirect_back fallback_location: comment.board
     end
   end
-  
+
 end

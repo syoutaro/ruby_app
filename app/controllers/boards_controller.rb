@@ -8,7 +8,6 @@ class BoardsController < ApplicationController
   end
 
   def new
-    #binding.pry
     @board = current_user.boards.new
   end
 

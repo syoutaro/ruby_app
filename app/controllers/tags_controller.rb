@@ -7,15 +7,12 @@ class TagsController < ApplicationController
   def create
     tag = Tag.create(tag_params)
     if tag.save
-      flash[:notice] = 'タグを作成しました'
+      flash[:notice] = "タグを作成しました"
       redirect_to :root
     else
-      flash[:alert] = 'タグを作成できませんでした。'
+      flash[:alert] = "タグを作成できませんでした。"
       redirect_back fallback_location: tag.boards
     end
-  end
-
-  def destroy
   end
 
   protected

@@ -3,4 +3,5 @@
   .p-comment__bottomLine
     %span= comment.user.username
     %span= comment.created_at.to_s(:datetime)
-    %span= link_to '削除', comment, method: :delete, data: { confirm: '削除してよろしいですか？' }
+    - if comment.user == current_user
+      %span= link_to '削除', comment, method: :delete, data: { confirm: '削除してよろしいですか？' }
