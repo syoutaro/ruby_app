@@ -8,13 +8,14 @@ class CommentsController < ApplicationController
       redirect_to comment.board
     else
       flash[:alert] = "コメントを投稿できませんでした。"
+      #render 'boards/show'
       redirect_back fallback_location: comment.board
     end
   end
 
   def destroy
     comment = Comment.find(params[:id])
-    comment.destroy
+    comment.destroy!
     flash[:notice] = "コメントを削除しました"
     redirect_to comment.board
   end
